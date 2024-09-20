@@ -14,8 +14,8 @@ def organize(floder_path):
                               os.makedirs(os.path.join(floder_path,floder_name))
 
         #move the file to the respective floder
-        shuil.move(os.path.join(floder_path,file),os.path.join(floder_path,floder_name,file))
+        shutil.move(os.path.join(floder_path,file),os.path.join(floder_path,floder_name,file))
     print("file organisation complete")
 
-floder_path="D:\Java"
+floder_path="C:/Users/RAO/Desktop/git hub/vlsi/verilog"
 organize(floder_path)
