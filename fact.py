@@ -1,28 +1,23 @@
+from functools import lru_cache
+@lru_cache
 def rec(a):
-    if(a==0):
-        return 1
-    else:
-        return a*rec(a-1)
-
+     return 1 if a==0 else a*rec(a-1)
+@lru_cache
 def permutation(n,r):
      c= rec(n)/rec(n-r)
-     print("permutation of%d,%d is %d"%(n,r,c))
+     print(f"permutation of {n},{r} is {c}")
+@lru_cache
 def combination(n,r):
-    d=rec(n)
-    e=rec(r)*rec(n-r)
-    f=d/e
-    print("the combination of %d ,%d is %d"%(n,r,f))
-b=int(input("1 for factorial\n2 for permutation\n3 for combination"))
+    f=rec(n)/(rec(r)*rec(n-r))
+    print(f"the combination of {n},{r} is {f}")
+
+b=int(input("1 for factorial\n2 for permutation\n3 for combination\nEnter your choice:"))
 if(b==1):
     z=int(input("Enter z value:"))
-    print("the factorial of %d is",rec(z)%(z))
+    print(f"the factorial of {z} is {rec(z)}")
 elif(b==2):
-    s=int(input("enter n value:"))
-    t=int(input("enter r value:"))
-    permutation(s,t)
+    permutation(int(input("enter n value:")),int(input("enter r value:")))
 elif(b==3):
-    s=int(input("enter n value:"))
-    t=int(input("enter r value:"))
-    combination(s,t)
+    combination(int(input("enter n value:")),int(input("enter r value:")))
 else:
     print("wrong input")
